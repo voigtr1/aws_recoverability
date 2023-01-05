@@ -1,0 +1,19 @@
+The achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are both well defined and will
+help to resolve any major downtimes considerebly faster in outage or desaster scenarios. In case of a single AZ outage
+the RDS MySQL database will automatically perform a failover to our configured secondary AZ. This process typically takes
+between 60 to 120 seconds according to AWS documentation, depending on other activites and the exact failover reason. 
+In case of a single region outage we will have to manually perform the failover and promotion of the new primary database. 
+The process to execute a successful failover involves multiple steps and will require some time until it finishes. In order
+to execute a complete region failover, we would have to:
+- Change the read-replica to be the new primary
+- Potentially change the new primary to be a multi AZ deployment in the new region
+- Update our applications to point to the new primary
+- Create a new read replica
+
+In order to be able to change the read replica to become a primary there needs to be as less replication lag as possible for the process
+to complete quickly. It will take several minutes for a complete failover. As described above the failover times for single AZ outages will be between 60 to 120 seconds
+and this would also be the time when the applications are unable to serve any read or write traffic. If this outage takes any longer, with the current solution backups
+are only done once per day from 4:18 - 4:48 UTC. Our data loss might reach from the time of the last backup until the application is fully functional again. This
+does not change too much in case of a region outage. The secondary region does not have any dedicated backup available. The time to be able
+to servce read and write traffic might be prolonged to several minutes though due to the longer failover and replication lag.
+As soon as the failover is performed a new backup process should be established immediately.

@@ -1,0 +1,29 @@
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity
+Database changed
+MySQL [udacity]> CREATE TABLE database_catalog (dbID MEDIUMINT NOT NULL AUTO_INCREMENT, dbName VARCHAR(255) NOT NULL, dbType VARCHAR(255) NOT NULL, PRIMARY KEY (dbID));
+Query OK, 0 rows affected (0.06 sec)
+
+MySQL [udacity]> INSERT INTO database_catalog (dbName, dbType) VALUES ('PostgreSQL', 'SQL');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> INSERT INTO database_catalog (dbName, dbType) VALUES ('MySQL', 'SQL');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> SELECT * from database_catalog;
++------+------------+--------+
+| dbID | dbName     | dbType |
++------+------------+--------+
+|    1 | PostgreSQL | SQL    |
+|    2 | MySQL      | SQL    |
++------+------------+--------+
+2 rows in set (0.00 sec)
+
+MySQL [udacity]>
