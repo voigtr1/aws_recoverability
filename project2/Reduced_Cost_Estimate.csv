@@ -1,0 +1,22 @@
+﻿Estimate summary
+Upfront cost,Monthly cost,Total 12 months cost,Currency
+13.1072,5207.96,62508.63,USD
+,,* Includes upfront cost
+
+
+Detailed Estimate
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon RDS for PostgreSQL,0,2780.8,33369.60,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (256 GB), Nodes (2), Instance Type (db.m6i.4xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (Reserved), Lease Offering Term (1yr), Purchase Option (No Upfront)"
+Reduced_Cost_Estimate,US East (N. Virginia),,Application Load Balancer,0,159.14,1909.68,USD,Number of Application Load Balancers (4)
+Reduced_Cost_Estimate,US East (N. Virginia),,AWS Fargate,0,576.63,6919.56,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (8 per day), Amount of memory allocated (4 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Reduced_Cost_Estimate,US East (N. Virginia),,AWS Fargate,0,1360.94,16331.28,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (8 per day), Amount of memory allocated (16 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Reduced_Cost_Estimate,US East (N. Virginia),,S3 Standard,13.1072,238.29,2872.59,USD,"S3 Standard storage (10 TB per month), S3 Standard Average Object Size (4 MB)"
+Reduced_Cost_Estimate,US East (N. Virginia),,Data Transfer,0,92.16,1105.92,USD,"DT Inbound: Internet (1 TB per month), DT Outbound: Internet (1 TB per month)"
+
+Reduction potential
+Since we are only starting to setup the project and estimate an initial user base of 50.000 monthly users, we might be able to start with a smaller database and scale it up based on the
+data we and users we will really have. Since the project is a social network application the data we need to store and functions we provide will take some time to rise.
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."

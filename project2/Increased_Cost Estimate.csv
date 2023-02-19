@@ -1,0 +1,30 @@
+﻿Estimate summary
+Upfront cost,Monthly cost,Total 12 months cost,Currency
+26.2144,19199.170000000002,230416.25,USD
+,,* Includes upfront cost
+
+
+Detailed Estimate
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+Increased_Cost Estimate,US East (N. Virginia),,Amazon RDS for PostgreSQL,0,8106.88,97282.56,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (256 GB), Nodes (2), Instance Type (db.m6i.12xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (Reserved), Lease Offering Term (1yr), Purchase Option (No Upfront)"
+Increased_Cost Estimate,US East (N. Virginia),,Application Load Balancer,0,159.14,1909.68,USD,Number of Application Load Balancers (4)
+Increased_Cost Estimate,US East (N. Virginia),,AWS Fargate,0,576.63,6919.56,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (8 per day), Amount of memory allocated (4 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Increased_Cost Estimate,US East (N. Virginia),,AWS Fargate,0,1360.94,16331.28,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (8 per day), Amount of memory allocated (16 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Increased_Cost Estimate,US East (N. Virginia),,S3 Standard,13.1072,238.29,2872.59,USD,"S3 Standard storage (10 TB per month), S3 Standard Average Object Size (4 MB)"
+Increased_Cost Estimate,US East (N. Virginia),,Data Transfer,0,92.16,1105.92,USD,"DT Inbound: Internet (1 TB per month), DT Outbound: Internet (1 TB per month)"
+Increased_Cost Estimate,US East (Ohio),,Amazon RDS for PostgreSQL,0,4053.44,48641.28,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (256 GB), Nodes (1), Instance Type (db.m6i.12xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (Reserved), Lease Offering Term (1yr), Purchase Option (No Upfront)"
+Increased_Cost Estimate,US East (Ohio),,S3 Standard,13.1072,238.29,2872.59,USD,"S3 Standard storage (10 TB per month), S3 Standard Average Object Size (4 MB)"
+Increased_Cost Estimate,US East (Ohio),,S3 Intelligent - Tiering,0,2.32,27.84,USD,"S3 INT Average Object Size (16 MB), S3 INT storage (100 GB per month)"
+Increased_Cost Estimate,US East (Ohio),,Data Transfer,0,92.16,1105.92,USD,"DT Inbound: Internet (1 TB per month), DT Outbound: Internet (1 TB per month)"
+Increased_Cost Estimate,US East (Ohio),,Application Load Balancer,0,159.14,1909.68,USD,Number of Application Load Balancers (4)
+Increased_Cost Estimate,US East (Ohio),,AWS Fargate,0,340.22,4082.64,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (2 per day), Amount of memory allocated (16 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Increased_Cost Estimate,US East (Ohio),,AWS Fargate,0,144.16,1729.92,USD,"Operating system (Linux), CPU Architecture (x86), Average duration (1 days), Number of tasks or pods (2 per day), Amount of memory allocated (4 GB), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+Increased_Cost Estimate,US East (N. Virginia),,Amazon ElastiCache,0,3635.4,43624.80,USD,"Nodes (0), Instance type (cache.r6gd.12xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Cache Engine (Redis), Cache Node Type (Memory optimized), Pricing strategy (OnDemand), Nodes (4), Instance type (cache.m4.4xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Cache Engine (Redis), Cache Node Type (Standard), Pricing strategy (OnDemand)"
+
+Increase Cost Estimate
+The increased amount of budget allocated to our project leaves us with optimization potentials with respect to redundancy and performance. For redundancy a active stanbdy setup has
+been added in us-east-2, so that we can easily failover if a region fails. For increased performance a caching layer with ElastiCache has been introduced to we are able to pre compute
+and/or store and deliver frequent queries.
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
