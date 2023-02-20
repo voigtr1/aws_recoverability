@@ -24,7 +24,7 @@ Increased_Cost Estimate,US East (N. Virginia),,Amazon ElastiCache,0,3635.4,43624
 Increase Cost Estimate
 The increased amount of budget allocated to our project leaves us with optimization potentials with respect to redundancy and performance. For redundancy a active stanbdy setup has
 been added in us-east-2, so that we can easily failover if a region fails. For increased performance a caching layer with ElastiCache has been introduced to we are able to pre compute
-and/or store and deliver frequent queries.
+and/or store and deliver frequent queries. Additionally the database instance type has been updated to a m6i for increase performance.
 
 Acknowledgement
 "* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
