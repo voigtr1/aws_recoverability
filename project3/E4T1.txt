@@ -1,0 +1,8 @@
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Change the NACL to prevent inbound traffic on TCP port 22 which is SSH.
+2. Change the SG to prevent inbound traffic on the WebAppSG on TCP port 22 which is SSH.
+3. Move the WebApp to the private VPC entirely and only make it accessible via the ELB.
+
+# Neither instance should have had access to the secret recipes bucket, even in the instance that instance API credentials were compromised how could we have prevented access to sensitive data.
+1.Don't allow bucket access via public routes, but rather via VPC private endpoints and move the WebApp to the private subnet as well
+2. Encrypt the buckets data via Server and/or client side encryption with appropriate key management via AWS CMK.

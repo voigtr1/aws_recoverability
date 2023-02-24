@@ -1,0 +1,16 @@
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+The web application instance could be moved to the private subnet. This would restrict the attack surface even more. Additionally the S3 bucket can then be only made accessible
+via internal routes and not public internet traffic from the application instance.
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+It would reduce the attack surface for getting access to the secrets bucket, but it would not prevent unauthorized access entirely. because as soon as somebody would be able to 
+intrude our public subnet somehow, he would still be able to get the data.
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+Buckets are now default encrypted by default according to the AWS documentation. However if that wouldn't be the case it would not encrypt all already uploaded data. One would have
+to rerun a batch job to encrypt the existing data.
+
+# What would happen if the original cloud formation templates are applied to this environment.
+First of all Cloudformation has a feature to detect whether resources have drifted from the initial configuration, so you are able to see whether there have been any manual changes
+on the resources created by the CloudformationStack. Running an update on a stack which has drift, will very likely overwrite the manual changes which have been done to the 
+environment when simply pressing update.

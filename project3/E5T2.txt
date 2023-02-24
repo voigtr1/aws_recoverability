@@ -1,0 +1,32 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+- Checkov
+- TFLint
+- TfSec
+- TerraScan
+
+### Example vulnerability
+Too broad access to S3 resources
+Using insecure transport protocols
+Too broad access to networks / subnets / security groups
+
+##Scan AMI’s or containers for OS vulnerabilities
+Aqua Security
+JFrog Xray
+Anchore
+CLAIR
+Amazon Inspector
+
+
+### Example vulnerability
+Any vulnerabilities commonly reported to site and published as CVE. For example usage of insecure library version or OS versions.
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Inspector
+AWS Config
+AWS Cloudtrail
+
+### Example vulnerability
+Configuration changes which have been applied outside of the CI/CD pipeline
+Any non compliant network and account rules settings

@@ -1,0 +1,19 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+S3 Bucket setup and protection is insufficient. From the setup in the template and the data upload it appears that everyone associated and logged into the AWS account can write and read
+the secret recipes, even though they should only be written by a special group of business owners. This violates the principle of least privileged access to infrastructure and data. With respect to the
+S3 bucket there also is no bucket versioning as well as no encryption set up. Encryption should be enabled to safeguard the data from unauthorized access even if someone gets access to the data.
+I would recommend to use S3 standard encryption with a customer managed key. The bucket versioning will help to prevent issues of accidental or malicious deletion of data. Whenever this would 
+happen, it would be possible for us to restore the objects with S3 versioning enabled.
+
+# Poor practice 2
+The endpoint is reachable on port 80 and allows access via HTTP and doesn't use HTTPS. This should be avoided for at least two reasons. The standard HTTP protocol transmits the data between
+the client and the server in an unencrypted way, allowing everyone to read the data being transmitted. Even though we are only exposing free recipes for in the tested url this should be avoided.
+Other reasons for using HTTPS include the protection against man in the middle attacks which would allow malicious attackers to intercept traffic and temper with the data.
+
+# Poor practice 3
+In case the HTTPS poor practice was none you were looking for I will provide a 3rd poor pracitice. The Application instance is placed in the public subnet, which is reachable from the internet.
+There is no need to place the instance with its security group in the public subnet. The application instances should be moved to the private subnet, because they neither should be reachable 
+from the internet not should they be able to reach the internet themselves. Currently they might need to have internet reachabiilty because the S3 buckets like this, but this could be fixed as well.
+In summary this change will lower the attack surface for malicious attacks.

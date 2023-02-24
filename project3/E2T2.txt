@@ -1,0 +1,41 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+From AWS Inspector
+1 AWS Inspector shows a lot of vulnerabilities with respect to allowing traffic on unneccesary ports for the WebApp Application deployed on the EC2 instance.
+
+Security Hub CIS Findings
+2 Security hub also shows findings with respect to allowing too much inbound and outbound traffic.
+3 VPC flow logs should have been enabled by the deployment in order to be able to analyze potential malicious behavior.
+4 No alarms and metric created for security events related to manipulations on NACLs / Network Gateways / Security Groups / CMKs / AWS Config changes etc.
+5 Cloudtrail is not enabled. As a result changes to critical actions on AWS Services and Infrastructure can not be tracked.
+
+AWS Foundational Security Best Practices
+6 Security Groups allow acces to critical ports and ports with high risk.
+7 Cloudtrail is not enabled, resulting in limited view on changes in AWS.
+8 EC2 instance should not have a public IP address.
+9 S3 buckets are misconfigured and do not use expected settings on access logging, SSL on requests, server side encryption.
+10 EBS volume of EC2 instance not encrypted at rest which allows data breaches.
+11 VPC flow logs should have been enabled by the deployment in order to analyse potential malicious behavior.
+12 Application load balancer not configure properly to drop HTTP headers.
+13 S3 buckets should not be publicly accessible.
+
+AWS Config
+Showed duplicated resource finding that have been mentioned before. It also detected that there is no standard HTTP to HTTPs redirect configured
+on the ELB. The rest is related to VPC config, security group config, S3 config.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+1 Remediate vulnerability by securing the VPC / Subnets with proper NACLs and ajdusting the Security Group for the WebApp Application (SGName: WebAppSG)
+2 Remediate like 1.
+3 Enable VPC flow logs when deploying the necessary infrastructure.
+4 Ensure proper monitoring and security alerts are deployed with respective cloudwatch metrics, dashboards and alarms.
+5 Enable Cloudtrail when deploying infrastruture and configure proper trails.
+6 Remediate like 1.
+7 Remediate like 5.
+8 As it has been mentioned before there is no reason for the EC2 instance to be exposed publicly. It should be placed in the private subnet and
+  secured properly.
+9 Properly setup S3 buckets with correct encryption, notifications and general protection.
+10 Encrypt EBS volume of EC2 instance at rest.
+11 Remediate like 3.
+12 Do not even allow to use HTTP but HTTPs and ensure HTTP headers are dropped properly.
+13 Route traffic to S3 buckets internally and not via public internet.

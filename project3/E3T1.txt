@@ -1,0 +1,6 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+I ran the attack twice for multiple hours, but GuardDuty did not show any issue at all. I am sorry. Please check the screenshots for proof.
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+Without knowing which attacks would be shown by GuardDuty it is very likely that this should have resulted in a EC2/SSHBruteForce reporting. This result would have come from
+the analysis from the VPC flow logs.
